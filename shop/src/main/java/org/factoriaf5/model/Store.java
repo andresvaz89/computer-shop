@@ -1,4 +1,5 @@
 package org.factoriaf5.model;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,7 @@ public class Store {
     }
 
     public void addComputer(Computer computer) {
+        computer.setStore(this); 
         computers.add(computer);
     }
 
@@ -32,6 +34,10 @@ public class Store {
 
     public List<Computer> listAllComputers() {
         return new ArrayList<>(computers);
+    }
+
+    public String getStoreName() {
+        return storeName;
     }
 
     @Override

@@ -1,4 +1,3 @@
-
 package org.factoriaf5;
 
 import org.factoriaf5.model.Computer;
@@ -18,7 +17,7 @@ public class StoreTest {
 
     @Before
     public void setUp() {
-        store = new Store("Tienda de Andrés", "Andrés", "123-456-789");
+        store = new Store("Tech Store", "Andrés", "123-456-789");
         dellComputer = new Computer("Dell", 16, "Intel i7", "Windows 10", 1200.00);
         appleComputer = new Computer("Apple", 8, "M1", "macOS", 1500.00);
         hpComputer = new Computer("HP", 32, "AMD Ryzen 7", "Windows 11", 1000.00);
@@ -68,21 +67,20 @@ public class StoreTest {
         assertTrue(store.listAllComputers().contains(appleComputer));
         assertTrue(store.listAllComputers().contains(hpComputer));
     }
+
     @Test
-    public void testToString() {
-        Store store = new Store("Andres's Tech Store", "Andrés", "123-ABC");
-
-        Computer computer1 = new Computer("Dell", 16, "Intel i7", "Windows 10", 1200.00);
-        Computer computer2 = new Computer("Apple", 8, "M1", "macOS", 1500.00);
-        store.addComputer(computer1);
-        store.addComputer(computer2);
-
-        String expectedOutput = "Store{storeName='Andres's Tech Store', owner='Andrés', taxId='123-ABC', computers=["
+    public void testToStringInStore() {
+        String expected = "Store{storeName='Tech Store', owner='Andrés', taxId='123-456-789', computers=["
                 + "Computer{brand='Dell', memory=16, processor='Intel i7', operatingSystem='Windows 10', price=1200.0}, "
-                + "Computer{brand='Apple', memory=8, processor='M1', operatingSystem='macOS', price=1500.0}"
+                + "Computer{brand='Apple', memory=8, processor='M1', operatingSystem='macOS', price=1500.0}, "
+                + "Computer{brand='HP', memory=32, processor='AMD Ryzen 7', operatingSystem='Windows 11', price=1000.0}"
                 + "]}";
-
-        assertEquals(expectedOutput, store.toString());
+        assertEquals(expected, store.toString());
     }
 
+    @Test
+    public void testToStringInComputer() {
+        String expected = "Computer{brand='Dell', memory=16, processor='Intel i7', operatingSystem='Windows 10', price=1200.0}";
+        assertEquals(expected, dellComputer.toString());
+    }
 }

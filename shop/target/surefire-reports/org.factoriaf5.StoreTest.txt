@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: org.factoriaf5.StoreTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.factoriaf5.StoreTest
+testToStringInStore(org.factoriaf5.StoreTest)  Time elapsed: 0.006 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...ws 10', price=1200.0[}, Computer{brand='Apple', memory=8, processor='M1', operatingSystem='macOS', price=1500.0}, Computer{brand='HP', memory=32, processor='AMD Ryzen 7', operatingSystem='Windows 11', price=1000.0]}]}> but was:<...ws 10', price=1200.0[, store=Tech Store}, Computer{brand='Apple', memory=8, processor='M1', operatingSystem='macOS', price=1500.0, store=Tech Store}, Computer{brand='HP', memory=32, processor='AMD Ryzen 7', operatingSystem='Windows 11', price=1000.0, store=Tech Store]}]}>
+	at org.factoriaf5.StoreTest.testToStringInStore(StoreTest.java:78)
+
+testToStringInComputer(org.factoriaf5.StoreTest)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...ws 10', price=1200.0[]}> but was:<...ws 10', price=1200.0[, store=Tech Store]}>
+	at org.factoriaf5.StoreTest.testToStringInComputer(StoreTest.java:84)
+

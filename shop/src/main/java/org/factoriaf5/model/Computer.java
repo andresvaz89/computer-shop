@@ -1,13 +1,12 @@
 package org.factoriaf5.model;
 
-
-
 public class Computer {
     private String brand;
     private int memory;
     private String processor;
     private String operatingSystem;
     private double price;
+    private Store store; 
 
     public Computer(String brand, int memory, String processor, String operatingSystem, double price) {
         this.brand = brand;
@@ -17,9 +16,17 @@ public class Computer {
         this.price = price;
     }
 
-    // Getters and Setters
+    
     public String getBrand() {
         return brand;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     @Override
@@ -30,6 +37,7 @@ public class Computer {
                 ", processor='" + processor + '\'' +
                 ", operatingSystem='" + operatingSystem + '\'' +
                 ", price=" + price +
+                ", store=" + (store != null ? store.getStoreName() : "Sin tienda asignada") +
                 '}';
     }
 }

@@ -3,6 +3,8 @@ package org.factoriaf5;
 import org.factoriaf5.model.Computer;
 import org.factoriaf5.model.Store;
 
+import java.util.Optional;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,20 +18,29 @@ public class Main {
         store.addComputer(computer2);
         store.addComputer(computer3);
 
-        // Esto es lo que hace el método findAndRemoveComputer
-        findAndRemoveComputer(store);
-    }
+        System.out.println("All Computers:");
+        store.listAllComputers().forEach(System.out::println);
 
-    public static void findAndRemoveComputer(Store store) {
-        // Buscar la computadora por marca
-        System.out.println("Searching for Dell:");
+        System.out.println("\nSearching for Dell:");
         store.findComputerByBrand("Dell").ifPresent(System.out::println);
 
-        // Eliminar la computadora Apple
         System.out.println("\nRemoving Apple computer:");
-        store.removeComputerByBrand("Apple");
+        findAndRemoveComputer(store, "Apple");
 
-        // Listar todos los computadores después de la eliminación
+        System.out.println("\nAll Computers after removal:");
+        store.listAllComputers().forEach(System.out::println);
+    }
+
+    public static void findAndRemoveComputer(Store store, String brand) {
+        Optional<Computer> computer = store.findComputerByBrand(brand);
+        if (computer.isPresent()) {
+            store.removeComputerByBrand(brand);  // Elimina el computador
+            System.out.println("Removed: " + brand);
+        } else {
+            System.out.println("Computer not found: " + brand);
+        }
+    
+        
         System.out.println("\nAll Computers after removal:");
         store.listAllComputers().forEach(System.out::println);
     }
